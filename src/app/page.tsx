@@ -7,6 +7,7 @@ import OnchainkitSvg from 'src/svg/OnchainkitSvg';
 import { useAccount } from 'wagmi';
 import LoginButton from '../components/LoginButton';
 import SignupButton from '../components/SignupButton';
+import { Checkout, CheckoutButton, CheckoutStatus } from '@coinbase/onchainkit/checkout';
 
 export default function Page() {
   const { address } = useAccount();
@@ -45,6 +46,10 @@ export default function Page() {
             text="Sign in to transact"
           />
         )}
+        <Checkout productId='my-product-id' > 
+          <CheckoutButton coinbaseBranded/> // set coinbaseBranded for branding
+          <CheckoutStatus />
+        </Checkout>
       </section>
       <Footer />
     </div>
